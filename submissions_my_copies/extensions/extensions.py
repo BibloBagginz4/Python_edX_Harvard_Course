@@ -26,10 +26,13 @@ def output_type(file_name):
     ending = file_name.rsplit(".", 1)[1]
 
     if ending not in allowed:
-        return "application/octet=stream"
+        return "application/octet-stream"
     
-    if ending in ("gif", "jpg", "jpeg", "png"):
+    if ending in ("gif", "jpeg", "png"):
         return "image/" + ending
+    
+    if ending == "jpg":
+            return "image/jpeg"
     
     if ending == "pdf":
             return "application/pdf"
@@ -38,7 +41,7 @@ def output_type(file_name):
         return "text/plain"
     
     if ending == "zip":
-        return "application/x-zip-compressed"
+        return "application/zip"
     
 
 main()
