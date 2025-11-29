@@ -1,0 +1,56 @@
+Notes Harvard CS50 - Python Introduction
+
+* Variables
+* Conditionals (if; elif; else)
+* Loops (for; while)
+* Exceptions
+* Libraries
+
+*** PARAMETERS can be passed into a function, while the actual values that passed into a function are called ARGUMENTS.
+
+========= TERMINAL COMMAND PROMPTS =========== 
+=                                            =
+= clear  ==> clears the terminal window      =
+= ctrl + c  ==> breaks a running code        =
+= ls  ==>                                    =
+= cp  ==>                                    =
+= mv  ==>                                    =
+= mkdir  ==> make new directory              =
+= cd  ==> change directory                   =
+= cd ..  ==> move up one folder level        =
+= rmdir  ==>                                 =
+======== END TERMINAL COMMAND PROMPTS ========
+
+
+======= PYTHON DATA TYPES =======
+= Text Types:                   =
+=      strings                  =
+=                               =
+= Numeric Types:                =
+=      integers                 =
+=      floats                   =
+=      complex                  =
+=                               =
+= Sequence Types:               =
+=      lists                    =
+=      tuple                    =
+=      range                    =
+=                               =
+= Mapping Type                  =
+=      dictionary               =
+=                               =
+= Set Type                      =
+=      set                      =
+=      frozenset                =
+=                               =
+= Boolean Type                  =
+=      Booleans                 =
+=                               =
+= Binary / Bytes Types          =
+=      bytes                    =
+=      bytearray                =
+=      memoryview               =
+=                               =
+= None Type                     =
+=       NoneType                =
+===== END PYTHON DATA TYPES =====
