@@ -10,10 +10,23 @@ Treat the user’s input case-insensitively.
 """
 
 def main():
-    ...
+    stop_flag = False
+    shopping_list = {}
+    while stop_flag == False:
+        try:
+            item = input("Item: ").strip().upper()
+            x = shopping_list.get(item, 0)
+            shopping_list[item] = x+1
+   
+        except EOFError:
+            stop_flag = True
 
-def sort_list(list):
-    ...
+    print(sorted_list(shopping_list))
+
+
+def sorted_list(list):
+    for key in sorted(list):
+        print(list[key], key)
 
 
 if __name__ == "__main__":
