@@ -14,19 +14,20 @@ def main():
     shopping_list = {}
     while stop_flag == False:
         try:
-            item = input("Item: ").strip().upper()
+            item = input().strip().upper()
             x = shopping_list.get(item, 0)
             shopping_list[item] = x+1
    
         except EOFError:
             stop_flag = True
 
-    print(sorted_list(shopping_list))
+    sorted_list(shopping_list)
 
 
 def sorted_list(list):
     for key in sorted(list):
         print(list[key], key)
+    return
 
 
 if __name__ == "__main__":
