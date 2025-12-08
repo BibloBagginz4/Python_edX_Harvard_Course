@@ -8,7 +8,10 @@ And if 99% or more remains, output F instead to indicate that the tank is essent
 If, though, X or Y is not an integer, X is greater than Y, or Y is 0, instead prompt the user again.
 (It is not necessary for Y to be 4.) Be sure to catch any exceptions like ValueError or ZeroDivisionError.
 """
+
+
 def main():
+    x = 1
     valid_fraction = False
     while valid_fraction == False:
         user_input = input("Fraction: ")
@@ -21,6 +24,7 @@ def main():
     else:
         print(f"{level}%")
 
+
 def parse_fraction(fraction):
     try:
         fraction_split = fraction.split("/", maxsplit=1)
@@ -32,6 +36,7 @@ def parse_fraction(fraction):
         return None, None, False
     except IndexError:
         return None, None, False
+
 
 def test_fraction(x, y):
     if y <= 0:

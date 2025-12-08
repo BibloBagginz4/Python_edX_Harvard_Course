@@ -13,9 +13,9 @@ for i in range(0, x):
     coin_flip_dict[c] = coin_flip_dict.get(c, 0) + 1
 
 
-print(f"Length of random_number_list: ", len(random_number_list))
-print(f"Length of coin_flip_list: ", len(coin_flip_list))
-print(f"coin_flip_dict: ", coin_flip_dict)
+print("Length of random_number_list: ", len(random_number_list))
+print("Length of coin_flip_list: ", len(coin_flip_list))
+print("coin_flip_dict: ", coin_flip_dict)
 
 cards = ["jack", "queen", "king"]
 random.shuffle(cards)
