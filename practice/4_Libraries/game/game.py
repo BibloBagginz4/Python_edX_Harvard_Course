@@ -17,12 +17,10 @@ This is a program that:
        output "Just right!" and exit.
 """
 
-from random import randint, randrange
+from random import randint
 
 
 def main():
-    guess = 0
-    status = 0
     num = randint(1, user_input_num("Level: "))
     print(user_guess(num))
 
@@ -34,18 +32,18 @@ def user_input_num(prompt):
             if num > 0:
                 return num
         except ValueError:
-            number = 0
+            pass  # Prompt again if input is not a valid integer
 
 
 def user_guess(number):
     while True:
         guess = user_input_num("Guess: ")
-        if number > guess:
+        if guess > number:
+            print("Too large!")
+        elif guess < number:
             print("Too small!")
-        if number < guess:
-            print("Too large")
         else:
-            return "Just Right"
+            return "Just Right!"
 
 
 if __name__ == "__main__":
