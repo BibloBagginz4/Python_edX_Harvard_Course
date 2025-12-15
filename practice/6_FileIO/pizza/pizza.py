@@ -18,10 +18,8 @@ def main():
 
     try:
         with open(file_name, "r", encoding="utf-8") as file:
-
             menu = []
             reader = csv.DictReader(file)
-
             for row in reader:
                 menu.append(row)
     except FileNotFoundError:
