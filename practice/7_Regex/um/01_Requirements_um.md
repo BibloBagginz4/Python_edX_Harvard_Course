@@ -1,16 +1,15 @@
 # CS50P Problem Checklist - um.py
 
 ## 1. Brief Problem Summary
-- [ ] Read and understand the problem goal: count occurrences of the word "um" in text.
+- [x] Read and understand the problem goal: count occurrences of the word "um" in text.
 - [ ] Confirm that matching is case-insensitive.
 - [ ] Confirm that "um" must be a standalone word, not part of another word.
 
 ## 2. Folder and File Creation
-- [ ] Create folder named `um`
-- [ ] Create file `um.py` inside the `um` folder
-- [ ] Create file `test_um.py` inside the `um` folder
-- [ ] Create Markdown file `01_Requirements_file.md` inside the `um` folder
-- [ ] Create optional local test scratch file `Test_file.py` if helpful
+- [x] Create folder named `um`
+- [x] Create file `um.py` inside the `um` folder
+- [x] Create file `test_um.py` inside the `um` folder
+- [x] Create Markdown file `01_Requirements_um.md` inside the `um` folder
 
 ## 3. Problem Requirements
 - [ ] Implement function `count(s: str) -> int`
@@ -18,14 +17,15 @@
 - [ ] Matching must be case-insensitive
 - [ ] Substrings inside other words must not be counted
 - [ ] Punctuation around "um" must be handled correctly
-- [ ] No additional libraries may be imported
-- [ ] Use of `re` and `sys` is allowed but optional
-- [ ] Follow the provided file structure exactly
+- [ ] Use findall function from the re module
+- [x] No additional libraries may be imported
+- [x] Use of `re` and `sys` is allowed but optional
+- [x] Follow the provided file structure exactly
 
 ## 4. Test Requirements
-- [ ] Implement three or more test functions in `test_um.py`
-- [ ] Each test function name starts with `test_`
-- [ ] Tests include valid and invalid matching cases
+- [x] Implement three or more test functions in `test_um.py`
+- [x] Each test function name starts with `test_`
+- [x] Tests include valid and invalid matching cases
 - [ ] Tests fail when incorrect logic is introduced intentionally
 - [ ] All tests pass with correct implementation
 

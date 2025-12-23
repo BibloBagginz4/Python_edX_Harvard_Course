@@ -12,7 +12,10 @@ def main():
 
 
 def count(s):
-    pass
+    um_pattern = r"\bum\b"
+
+    find_um = re.findall(um_pattern, s, re.IGNORECASE)
+    return len(find_um)
 
 
 if __name__ == "__main__":
