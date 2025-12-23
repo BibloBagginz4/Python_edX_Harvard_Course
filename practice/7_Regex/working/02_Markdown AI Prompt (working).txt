@@ -1,0 +1,202 @@
+=================================================================
+SECTION 1 - INTERNAL METADATA - NOT FOR AI INSTRUCTIONS
+=================================================================
+
+<<< SUBJECT - Internal Metadata Not for AI Instructions!>>> 
+    Create a Markdown file for CS50P Problem Set problems.
+
+<<< REVISION - Internal Metadata Not for AI Instructions!>>> 
+    Prompt: Rev01 Initial Draft 12-19-2025
+    Template: Rev01 Initial Release 12-19-2025:22:48
+
+=================================================================
+SECTION 2 - AI INSTRUCTIONS (HIGH PRIORITY)
+=================================================================
+
+<<< AI ROLE >>>
+    You are a world class expert programmer and writing assistant to me.
+
+<<< AI PRIMARY TASK >>> 
+    You are being tasked with reviewing all of the data and writing a
+    very simple. yet effective markdown checklist for the CS50P problem.
+
+<<< Markdown PURPOSE>>>
+    To help me identify and fulfill all of the problem requirements, so
+    that I can complete the task as quickly and efficiently as possible.
+
+<<< OUTPUT FORMAT >>>
+    Your final output wimm be an in-chat text that I can copy and paste
+    directly into VS Vode 
+
+<<< TARGET READER >>>
+    Me
+
+<<< BACKGROUND FACTS >>>
+    1) Informational Background Details
+
+=================================================================
+SECTION 3 - DETAILED AI INSTRUCTIONS
+=================================================================
+
+<<< REQUIRED CONTENT ELEMENTS >>>
+    A) Do not include code structure if provided, but add a checkmark
+       item stating that it must be followed.
+    B) Mandatory Sections
+        1. Brief problem sumary
+        2. Folder/File Creation
+        3. Problem Requirements
+        4. Check & Submital steps
+    c) Checkbox lines to include if applicapable.
+        1. Folder & File Creation lines with names in them.
+        2. Include Markdown file creation: `01_Requirements_file.md`
+        3. Test script file creation: `Test_file.py`
+
+<<< OPTIONAL CONTENT ELEMENTS - USE ONLY IF THEY IMPROVE THE MESSAGE >>>
+    A) Specific details to consider
+
+<<< GLOBAL INSTRUCTIONS & CONSTRAINTS - FOLLOW EXACTLY >>>
+    1) No hallucinations. Only use the information provided.
+    2) Follow all instructions unless user overrides them.
+    3) If any instruction seems ambiguous or contradictory, ask one
+       clarifying question before writing the draft.
+    4) No Long Hyphens (These are dead AI giveaways). Use standard
+       hyphens only.
+    5) Use proper grammar and spelling.
+    6) The writing should not sound like it was AI written.
+    7) Tone: Write in my natural voice: grounded, steady, positive, and
+       honest.
+       Avoid exaggerated enthusiasm or sales-like language. I do not try
+       to impress. I communicate with clarity, calm confidence, and
+       sincerity.
+    8) Positivity: Use constructive, positive framing only. Avoid
+       negative words and avoid defensive language.
+       Always forward and productive.
+    9) Voice: Avoid fluff, avoid generic corporate language, avoid
+       sounding eager or desperate.
+       Maintain clear, concise, natural phrasing.
+    10) Match the user's preferred terminology whenever provided.
+
+<<< TASK SPECIFIC INSTRUCTIONS & CONSTRAINTS >>>
+    1) WORD COUNT TARGET: Unless specificed here, use best practice
+       counts.
+    2) Additional task-specific instructions can be listed here.
+
+
+=================================================================
+SECTION 4 - TONE / STYLE CALIBRATION
+=================================================================
+
+<<< START WRITING TONE SAMPLE - DO NOT COPY CONTENT >>>
+    [Use these samples only to match tone, pacing, and style. Do not copy subject matter, structure, or concepts.]
+    Sample 1
+        Great engineering leadership is about understanding people, timing, and the quiet spaces in between.
+        I learned this during a long effort to resolve a quality issue that revealed itself only when I stepped back
+        and observed the rhythm of the process. That experience shaped how I lead: clarity, discipline, and 
+        communication work best when people and systems are understood together. Across my career, I have focused on
+        simplifying the complex, aligning teams around stable processes, and guiding work with steady, thoughtful structure.
+        My goal is always the same: build the clarity and environment that allow people and operations to perform at
+        their best.
+    Sample 2
+        My approach to leadership comes from hands-on experience with engineering, production, and operations teams.
+        I focus on translating complex details into clear steps people can follow with confidence.
+        Reliable outcomes come from disciplined processes, thoughtful sequencing, and understanding how teams respond
+        to structure. I aim to create environments where technical rigor and practical execution support each other,
+        allowing people to perform with clarity and purpose.
+<<< END WRITING TONE SAMPLE >>>
+
+================================================================
+SECTION 5 - REFERENCE MATERIALS
+=================================================================
+
+<<<START:CS50P_Problem_Instructions>>>
+    Whereas most countries use a 24-hour clock, the United States tends to use a 12-hour clock. Accordingly, instead of “09:00 to 17:00”, many Americans would say they work “9:00 AM to 5:00 PM” (or “9 AM to 5 PM”), wherein “AM” is an abbreviation for “ante meridiem” and “PM” is an abbreviation for “post meridiem”, wherein “meridiem” means midday (i.e., noon).
+
+Conversion Table
+In a file called working.py, implement a function called convert that expects a str in any of the 12-hour formats below and returns the corresponding str in 24-hour format (i.e., 9:00 to 17:00). Expect that AM and PM will be capitalized (with no periods therein) and that there will be a space before each. Assume that these times are representative of actual times, not necessarily 9:00 AM and 5:00 PM specifically.
+
+9:00 AM to 5:00 PM
+9 AM to 5 PM
+9:00 AM to 5 PM
+9 AM to 5:00 PM
+Raise a ValueError instead if the input to convert is not in either of those formats or if either time is invalid (e.g., 12:60 AM, 13:00 PM, etc.). But do not assume that someone’s hours will start ante meridiem and end post meridiem; someone might work late and even long hours (e.g., 5:00 PM to 9:00 AM).
+
+Structure working.py as follows, wherein you’re welcome to modify main and/or implement other functions as you see fit, but you may not import any other libraries. You’re welcome, but not required, to use re and/or sys.
+
+import re
+import sys
+
+
+def main():
+    print(convert(input("Hours: ")))
+
+
+def convert(s):
+    ...
+
+
+...
+
+
+if __name__ == "__main__":
+    main()
+Either before or after you implement convert in working.py, additionally implement, in a file called test_working.py, three or more functions that collectively test your implementation of convert thoroughly, each of whose names should begin with test_ so that you can execute your tests with:
+
+pytest test_working.py
+Hints
+Demo
+
+Before You Begin
+Log into cs50.dev, click on your terminal window, and execute cd by itself. You should find that your terminal window’s prompt resembles the below:
+
+$
+Next execute
+
+mkdir working
+to make a folder called working in your codespace.
+
+Then execute
+
+cd working
+to change directories into that folder. You should now see your terminal prompt as working/ $. You can now execute
+
+code working.py
+to make a file called working.py where you’ll write your program. Be sure to also execute
+
+code test_working.py
+to create a file called test_working.py where you’ll write tests for your program.
+
+How to Test
+How to Test working.py
+Here’s how to test working.py manually:
+
+Run your program with python working.py. Ensure your program prompts you for a time. Type 9 AM to 5 PM, followed by Enter. Your program should output 09:00 to 17:00.
+Run your program with python working.py. Type 9:00 AM to 5:00 PM, followed by Enter. Your program should again output 09:00 to 17:00.
+Run your program with python working.py. Ensure your program prompts you for a time. Type 10 AM to 8:50 PM, followed by Enter. Your program should output 10:00 to 20:50.
+Run your program with python working.py. Ensure your program prompts you for a time. Type 10:30 PM to 8 AM, followed by Enter. Your program should output 22:30 to 08:00.
+Run your program with python working.py. Ensure your program prompts you for a time. Try intentionally inducing a ValueError by typing 9:60 AM to 5:60 PM, followed by Enter. Your program should indeed raise a ValueError.
+Run your program with python working.py. Ensure your program prompts you for a time. Try intentionally inducing a ValueError by typing 9 AM - 5 PM, followed by Enter. Your program should indeed raise a ValueError.
+Run your program with python working.py. Ensure your program prompts you for a time. Try intentionally inducing a ValueError by typing 09:00 AM - 17:00 PM, followed by Enter. Your program should indeed raise a ValueError.
+How to Test test_working.py
+To test your tests, run pytest test_working.py. Try to use correct and incorrect versions of working.py to determine how well your tests spot errors:
+
+Ensure you have a correct version of working.py. Run your tests by executing pytest test_working.py. pytest should show that all of your tests have passed.
+Modify the correct version of working.py, particularly its function convert. Your program might, for example, fail to raise a ValueError when it should. Run your tests by executing pytest test_working.py. pytest should show that at least one of your tests has failed.
+Similarly, modify the correct version of working.py, changing the return values of convert. Your program might, for example, mistakenly omit minutes. Run your tests by executing pytest test_working.py. pytest should show that at least one of your tests has failed.
+You can execute the below to check your code using check50, a program that CS50 will use to test your code when you submit. But be sure to test it yourself as well!
+
+check50 cs50/problems/2022/python/working
+Green smilies mean your program has passed a test! Red frownies will indicate your program output something unexpected. Visit the URL that check50 outputs to see the input check50 handed to your program, what output it expected, and what output your program actually gave.
+
+How to Submit
+In your terminal, execute the below to submit your work.
+
+submit50 cs50/problems/2022/python/working
+<<<END:CS50_Problem_Instructions>>>
+
+<<< START REFERENCE MATERIAL 2 >>>
+    Paste Supporting Information Here
+<<< END REFERENCE MATERIAL 2 >>>
+
+<<< START REFERENCE MATERIAL 3 >>>
+    Paste Supporting Information Here
+<<< END REFERENCE MATERIAL 3 >>>
