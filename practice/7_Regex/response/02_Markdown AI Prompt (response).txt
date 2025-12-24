@@ -1,0 +1,168 @@
+=================================================================
+SECTION 1 - INTERNAL METADATA - NOT FOR AI INSTRUCTIONS
+=================================================================
+
+<<< SUBJECT - Internal Metadata Not for AI Instructions!>>> 
+    Create a Markdown file for CS50P Problem Set problems.
+
+<<< REVISION - Internal Metadata Not for AI Instructions!>>> 
+    Prompt: Rev01 Initial Draft 12-22-2025
+    Template: Rev01 Initial Release 12-19-2025:22:48
+
+=================================================================
+SECTION 2 - AI INSTRUCTIONS (HIGH PRIORITY)
+=================================================================
+
+<<< AI ROLE >>>
+    You are a world class expert programmer and writing assistant to me.
+
+<<< AI PRIMARY TASK >>> 
+    You are being tasked with reviewing all of the data and writing a
+    very simple. yet effective markdown checklist for the CS50P problem.
+
+<<< Markdown PURPOSE>>>
+    To help me identify and fulfill all of the problem requirements, so
+    that I can complete the task as quickly and efficiently as possible.
+
+<<< OUTPUT FORMAT >>>
+    Your final output wimm be an in-chat text that I can copy and paste
+    directly into VS Vode 
+
+<<< TARGET READER >>>
+    Me
+
+<<< BACKGROUND FACTS >>>
+    1) Informational Background Details
+
+=================================================================
+SECTION 3 - DETAILED AI INSTRUCTIONS
+=================================================================
+
+<<< REQUIRED CONTENT ELEMENTS >>>
+    A) Do not include code structure if provided, but add a checkmark
+       item stating that it must be followed.
+    B) Mandatory Sections
+        1. Brief problem sumary
+        2. Folder/File Creation
+        3. Problem Requirements
+        4. Check & Submital steps
+    c) Checkbox lines to include if applicapable.
+        1. Folder & File Creation lines with names in them.
+        2. Include Markdown file creation: `01_Requirements_response.md`
+        3. Test script file creation: `Test_response.py`
+
+<<< OPTIONAL CONTENT ELEMENTS - USE ONLY IF THEY IMPROVE THE MESSAGE >>>
+    A) Specific details to consider
+
+<<< GLOBAL INSTRUCTIONS & CONSTRAINTS - FOLLOW EXACTLY >>>
+    1) No hallucinations. Only use the information provided.
+    2) Follow all instructions unless user overrides them.
+    3) If any instruction seems ambiguous or contradictory, ask one
+       clarifying question before writing the draft.
+    4) No Long Hyphens (These are dead AI giveaways). Use standard
+       hyphens only.
+    5) Use proper grammar and spelling.
+    6) The writing should not sound like it was AI written.
+    7) Tone: Write in my natural voice: grounded, steady, positive, and
+       honest.
+       Avoid exaggerated enthusiasm or sales-like language. I do not try
+       to impress. I communicate with clarity, calm confidence, and
+       sincerity.
+    8) Positivity: Use constructive, positive framing only. Avoid
+       negative words and avoid defensive language.
+       Always forward and productive.
+    9) Voice: Avoid fluff, avoid generic corporate language, avoid
+       sounding eager or desperate.
+       Maintain clear, concise, natural phrasing.
+    10) Match the user's preferred terminology whenever provided.
+    11) Each item is to be included only ONCE on the list. Do not
+        duplicate any part of a task.
+
+<<< TASK SPECIFIC INSTRUCTIONS & CONSTRAINTS >>>
+    1) WORD COUNT TARGET: Unless specificed here, use best practice
+       counts.
+    2) Additional task-specific instructions can be listed here.
+
+
+=================================================================
+SECTION 4 - TONE / STYLE CALIBRATION
+=================================================================
+
+<<< START WRITING TONE SAMPLE - DO NOT COPY CONTENT >>>
+    [Use these samples only to match tone, pacing, and style. Do not copy subject matter, structure, or concepts.]
+    Sample 1
+        Great engineering leadership is about understanding people, timing, and the quiet spaces in between.
+        I learned this during a long effort to resolve a quality issue that revealed itself only when I stepped back
+        and observed the rhythm of the process. That experience shaped how I lead: clarity, discipline, and 
+        communication work best when people and systems are understood together. Across my career, I have focused on
+        simplifying the complex, aligning teams around stable processes, and guiding work with steady, thoughtful structure.
+        My goal is always the same: build the clarity and environment that allow people and operations to perform at
+        their best.
+    Sample 2
+        My approach to leadership comes from hands-on experience with engineering, production, and operations teams.
+        I focus on translating complex details into clear steps people can follow with confidence.
+        Reliable outcomes come from disciplined processes, thoughtful sequencing, and understanding how teams respond
+        to structure. I aim to create environments where technical rigor and practical execution support each other,
+        allowing people to perform with clarity and purpose.
+<<< END WRITING TONE SAMPLE >>>
+
+================================================================
+SECTION 5 - REFERENCE MATERIALS
+=================================================================
+
+<<<START:CS50P_Problem_Instructions>>>
+Response Validation
+When creating a Google Form that prompts users for a short answer (or paragraph), it’s possible to enable response validation and require that the user’s input match a regular expression. For instance, you could require that a user input an email address with a regex like this one:
+
+^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
+Or you could more easily use Google’s built-in support for validating an email address, per the screenshot below, much like you could use a library in your own code:
+
+Google Form
+
+In a file called response.py, using either validator-collection or validators from PyPI, implement a program that prompts the user for an email address via input and then prints Valid or Invalid, respectively, if the input is a syntatically valid email address. You may not use re. And do not validate whether the email address’s domain name actually exists.
+
+Hints
+Note that you can install validator-collection with:
+pip install validator-collection
+Click Homepage to find your way to the library’s documentation.
+
+Note that you can install validators with:
+pip install validators
+Click Homepage to find your way to the library’s documentation.
+
+Demo
+
+Before You Begin
+Log into cs50.dev, click on your terminal window, and execute cd by itself. You should find that your terminal window’s prompt resembles the below:
+
+$
+Next execute
+
+mkdir response
+to make a folder called response in your codespace.
+
+Then execute
+
+cd response
+to change directories into that folder. You should now see your terminal prompt as response/ $. You can now execute
+
+code response.py
+to make a file called response.py where you’ll write your program.
+
+How to Test
+Here’s how to test your code manually:
+
+Run your program with python response.py. Ensure your program prompts you for an email, then type malan@harvard.edu, followed by Enter. Your program should output Valid.
+Run your program with python response.py. Type your own email, followed by Enter. Your program should output Valid.
+Run your program with python response.py. Type malan@@@harvard.edu, followed by Enter. Your program should output Invalid.
+Run your program with python response.py. Mistype your own email, including an extra . before .com, for example. Press enter and your program should output Invalid.
+You can execute the below to check your code using check50, a program that CS50 will use to test your code when you submit. But be sure to test it yourself as well!
+
+check50 cs50/problems/2022/python/response
+Green smilies mean your program has passed a test! Red frownies will indicate your program output something unexpected. Visit the URL that check50 outputs to see the input check50 handed to your program, what output it expected, and what output your program actually gave.
+
+How to Submit
+In your terminal, execute the below to submit your work.
+
+submit50 cs50/problems/2022/python/response
+<<< END REFERENCE MATERIAL 3 >>>
