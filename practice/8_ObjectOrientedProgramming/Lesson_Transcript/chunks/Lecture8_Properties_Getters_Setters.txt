@@ -1,0 +1,407 @@
+1:15:38
+to simplify our world and focus on some of the other core capabilities of classes. So at the risk of disappointing, I'm going
+1:15:44
+to get rid of all of these beautiful emoji and charms, and I'm going to go ahead and stop asking the user now for their patronus.
+1:15:51
+And I'm going to stop passing it into init here. And I'm going to stop doing this here.
+1:15:57
+And I'm going to instead just go ahead and restore our use of print student
+1:16:03
+here, and I'm going to go ahead and get rid of patronus down here. So just essentially undo all of the fun charms we just created.
+1:16:10
+So we're now back at the point in the story where we have a student class,
+1:16:16
+with only two methods-- init and str. The first of those takes, of course, self
+1:16:21
+as the first argument as it always will, plus two more now-- name and house, no more patronus. We're validating name up here.
+1:16:28
+We're validating house down here. And then we're assigning name and house, respectively, to two instance variables called name and house also.
+1:16:35
+But we use self to get access to the current object, to store those values therein.
+1:16:40
+We then still have our str method here, which takes one argument-- by default, self, and that's it.
+1:16:46
+And that function is going to be called automatically any time you want to convert a student object to a string,
+1:16:52
+just like print might want to do here. So let me go ahead and just make sure I haven't broken anything.
+1:16:57
+Let me run Python of student.py. I'll type in Harry. I'll type in Gryffindor, Enter.
+1:17:03
+OK, we're back in business. Gone are the charms and patronus, but at least I'm back to a situation
+1:17:08
+where I have names and houses. But it turns out, at the moment, our use of classes
+1:17:14
+is not very robust, even though we have this mechanism, very cleverly,
+1:17:20
+if I may, in our init method of making sure that we're validating name and house, making sure that name is not blank,
+1:17:27
+and making sure that house is a valid house among those four Hogwarts houses.
+1:17:32
+It turns out that classes will still let me get at those attributes, those so-called instance variables,
+1:17:38
+using dot notation anyway. Let me scroll down then and try to do this a little adversarially.
+1:17:44
+Suppose that online 16 I go ahead and call get_student, which exists as before, and then I store the return value in a student
+1:17:52
+variable-- again, on line 16. That will ensure that get_student gets called, which calls input and input.
+1:18:00
+And then it calls the student constructor, which invokes, automatically, this init method.
+1:18:05
+So by way of how we've laid out my code, we're going to ensure that name is not blank and house is definitely
+1:18:11
+one of those four values. My error correction-- or error checking is in place. But if I'm a little adversarial, I can still circumvent it.
+1:18:20
+Suppose that-- fine, going to require me to type in Harry and Gryffindor? I'm going to go ahead and type in student.house
+1:18:28
+equals, quote, unquote, "Number Four, Privet Drive," and you're not going to be able to stop me.
+1:18:33
+Why? Well, it turns out, with classes and objects thereof, you and I can still access those instance variables
+1:18:40
+using this familiar dot notation. That's how we began the story of classes-- just setting these attributes ourselves.
+1:18:45
+But you can also read these attributes themselves and change them later if you want. And this will effectively circumvent the if condition and the other if condition
+1:18:55
+in our init method because that is only called when you first create the student object.
+1:19:02
+There's nothing stopping me, at the moment, from just changing the house or the name after.
+1:19:08
+So if I now clear my terminal window and run Python of student.py, I'll still type in Harry and Gryffindor to meet my requirements
+1:19:16
+that the house be one of those four. But when it's printed, notice, I've still overridden it.
+1:19:21
+So it seems that, while classes do allow us a little more control over the data we're storing, it doesn't necessarily prevent the user--
+1:19:30
+or rather the programmer-- be it myself or maybe a colleague, from still messing things up.
+1:19:35
+So here, too, in the spirit of programming a little more defensively, allow me to introduce another feature of Python as well--
+1:19:43
+namely properties. So a property is really just an attribute
+1:19:49
+that has even more defense mechanisms put into place, a little more functionality implemented by you to prevent programmers, like me
+1:19:58
+and you, from messing things up like these attributes. So again, a property is going to be an attribute that you and I just
+1:20:04
+have more control over. How? We just write a little more code, using some Python conventions.
+1:20:09
+And how we're going to do that is going to use, in just a moment, a feature-- a keyword known as @property, which is technically a function.
+1:20:18
+Property is a function in Python. But we're about to see some new @ syntax that allows you to decorate functions.
+1:20:24
+And this, too, is a term of art. In the world of Python, you can have decorators, which are functions that modify the behavior of other functions,
+1:20:33
+if you will, and we'll leave it at that without going too much into the weeds. And we'll see, by, example how you can use these decorators,
+1:20:39
+specifically to define properties. So let me go back to VS Code here. And let me propose that I do this.
+1:20:46
+I'm going to go ahead and create-- how about a property called house as follows.
+1:20:54
+Inside of my student class, I'm going to go ahead-- and below my init method
+1:21:00
+and below my str method, I'm going to go ahead and define a function called house that takes, as it always must, one argument at least,
+1:21:09
+called self. And what I'm going to do now is return self.house.
+1:21:15
+So I'm just going to define a method called house, whose sole purpose in life is to return the value of house.
+1:21:23
+But I'm going to define one other method, curiously also called house, but that's going to take into, as arguments, two values--
+1:21:31
+self as always and also a value called house. And I'm going to now do this.
+1:21:40
+I'm going to do self.house = house. Now, what have I done? Well, let me just temporarily add some comments here.
+1:21:47
+In a moment, we're going to start referring to this generally as a getter. And down here, I'm going to refer to this as a setter.
+1:21:54
+And this is terminology frequently see in the world of Java. Some of you have programmed in Java before. But as the names imply, a getter is a function
+1:22:01
+for a class that gets some attributes. A setter is a function in some class that sets some value.
+1:22:10
+And now, even though we're not done, and there's a bit of a mistake in the code I've already written, intuitively, what we're going to do is this.
+1:22:17
+We're trying to prevent programmers, myself included, from circumventing my error checking that I
+1:22:23
+put into place for name and house. How can I do that? Well, we don't have that many building blocks in programming.
+1:22:29
+We have things like variables for data, and we have functions for actions. Well, why don't we do this?
+1:22:35
+Why don't we somehow require that, in order to access an attribute, you go through some function.
+1:22:41
+And let's require that, in order to set some attribute, you go through some function. And conventionally, those functions are called a getter function and a setter
+1:22:51
+function. And why are we using functions or, in this case, methods inside of a class? Well, once you have functions, those are just actions or verbs
+1:23:00
+that you and I can create ourselves. We can put any error correction I want in these functions
+1:23:05
+because it's code that's going to get executed top to bottom. So how can I now prevent the user from setting the house to an invalid value?
+1:23:15
+Let me borrow some logic from before rather than blindly do this-- just set self.house equal to the house value that's passed in-- let's add our error
+1:23:25
+checking there. So if house is not in the following list of Gryffindor or Hufflepuff
+1:23:34
+or Ravenclaw or Slytherin, just as before,
+1:23:40
+let's go ahead and raise a value error, just to signify that, uh-uh, something has gone wrong. I'll be more explicit.
+1:23:46
+I'll include a message like, "invalid house," quote, unquote. Otherwise, I'm going to proceed on, now, line 21 to set self.house to house.
+1:23:56
+So I've just copied, if you will, or retyped my error checking inside of this so-called setter function.
+1:24:02
+Now, why have I done that? Well, to be clear, whenever the user or the programmer
+1:24:07
+writes code like this, student.house equals, what's about to happen magically is Python will not just
+1:24:16
+let the programmer access student house directly-- that attribute, that instance variable, a.k.a.
+1:24:21
+self house. It's instead going to magically automatically call
+1:24:26
+this setter function for me. How does Python know to do that? Well, if it's see that, on the left-hand side, there is self.house,
+1:24:35
+where house is the name of the getter or setter, and then it sees an equal sign,
+1:24:42
+indicating assignment, that's just enough of a visual clue to say, wait a minute. I'm not going to let you access that attribute directly.
+1:24:49
+I'm going to use the setter instead. Why? Because the equal sign means I'm trying to set.
+1:24:54
+I'm trying to assign a value from right to left into that attribute. So what Python's is going to do automatically
+1:25:00
+is call this function for me. And that's amazing because now I can execute code-- an algorithm to check,
+1:25:06
+do I want to let the user-- the programmer set that attribute to that value?
+1:25:12
+If not, I'm going to raise a value error, and you're just not going to be able to do it. If so fine.
+1:25:17
+I'll go ahead and set it for you. But in order to do this, we need a little more syntax. And I'm going to get rid of my comment, and I'm going to use that decorator.
+1:25:25
+I need to tell Python to treat this method as a getter. And then the syntax for the setter is a little different.
+1:25:32
+You now say house.setter. I wish one was getter and the other was setter.
+1:25:37
+That's not the way they designed it. When you want to define a getter, you just say @property above the function.
+1:25:44
+And you name the function exactly like you would like the property to be called-- quote, unquote, "house."
+1:25:51
+Once you do that, you can now use a new decorator that's automatically created for you called @house,
+1:25:57
+because I called it house. And then you literally say, @house.setter. And this whole line, on line 17, is a clue to Python
+1:26:05
+that here comes a function, whose name is identical-- but notice that it takes two arguments-- both self, so you have access
+1:26:12
+to the contents of the object, and house, which is just going to be a str that comes from the programmer from the human input return
+1:26:20
+value so that you can set that value as well. But there's one fix I need to make now, here.
+1:26:27
+Everything else, I think, is still good. However watch this. I no longer need this error check here.
+1:26:34
+Why? Because, if I scroll back down to my code here, I claimed a moment ago that code like this, with student.house equals,
+1:26:46
+is going to automatically get Python to call my setter for me. Guess what? Even up here, in my init method, calling self.house equals
+1:26:55
+is also going to call my setter method, which is amazing because now I can keep all of my error checking in one place in the setter,
+1:27:06
+and it will now get called either when I create the object for the first time, because of init, or even if the programmer
+1:27:14
+tries to circumvent that init method and change the value of this attribute, my setter will also get called.
+1:27:21
+My setter will get called any time I access .house. But there's one fix I need to make.
+1:27:28
+Unfortunately, I have collided names. Right now, if we go up here, on line 5, this is an instance variable.
+1:27:38
+It's a string inside of my self, inside of the current student object, called name. And this is another instance variable called house.
+1:27:46
+Unfortunately, if I have an instance variable called name and house, I cannot also have functions called house.
+1:27:54
+They're going to collide. You've got to decide. Do you want the variable to be called house? Or do you want the function to be called house?
+1:28:01
+Unfortunately, you can't have both because now Python is going to confuse one for the other. So the conventional fix for this is to do this--
+1:28:09
+to have the setter not store the value that's passed in self.house,
+1:28:15
+but to use an almost identical name, but to use a little indicator that means you know doing this correctly.
+1:28:21
+You typically, by convention, put an underscore in front of the instance variable's name.
+1:28:27
+And when you return it up here, you similarly put an underscore. So now, technically, my instance variable is called _house,
+1:28:36
+but my property, which is a fancier attribute, if you will,
+1:28:41
+is called house alone. Huge amount of syntax, I know, but it's a very powerful feature.
+1:28:48
+And again, this is why you can graduate from dictionaries alone and have so much more functionality at your disposal.
+1:28:55
+Let me go ahead and clear my terminal window and run Python of student.py, Enter, name. All right, let's go ahead and type in Harry.
+1:29:02
+Let's go ahead and type in Gryffindor. Crossing my fingers as always. And now, look, "Invalid house."
+1:29:09
+This is a good thing. Why? Because, notice, in my main function, I'm still trying, maliciously, if you will, to change Harry's house
+1:29:19
+to not be one of the four valid ones. I'm trying to change it to his childhood home of Number Four, Privet Drive.
+1:29:24
+But because Python knows that, wait a minute, you're trying to assign-- that is, set a value--
+1:29:30
+and that value, a.k.a. house, is now defined as a property you're going to have to go through the setter function instead
+1:29:38
+to even let you change that value. And because I have this raise ValueError.
+1:29:44
+If the house is not as intended, you're not going to be allowed to change it to an invalid value.
+1:29:49
+So I'm protecting the data on the way in, through the init method, and I'm even defending the data if you try to override it there.
+1:29:56
+So I think the only solution for me, the programmer, is, don't try to break my own code. Let me remove that line because it's just not going to work.
+1:30:04
+Let me run Python of student.py and, again, type in Harry; type in Gryffindor, Enter, and Harry's indeed from Gryffindor.
+1:30:10
+If I did something incorrect, like Harry from Number Four, Privet Drive, Enter, we're again going to see the value error
+1:30:20
+because my code just doesn't let that value in via manual input now or via that adversarial change.
+1:30:28
+All right, that was a lot. But any question on properties?
+1:30:35
+AUDIENCE: Why we are using getter then setter? It's just for the purpose so that we can find
+1:30:41
+that method, that function in our code. DAVID J. MALAN: The reason that I'm going through the trouble of defining
+1:30:46
+this getter or setter is because I want to make sure that programmers cannot do
+1:30:52
+things like this. If I'm going through the trouble of validating the attributes for these student objects,
+1:30:58
+I don't want you to be able to go in there and just change them at will. I want to have some control over that object
+1:31:04
+so that you can just trust that it's going to be correct as designed. So using a getter and setter really just enables
+1:31:11
+Python to automatically detect when you're trying to manually set a value. The equal sign and the dot, as I've highlighted here,
+1:31:18
+is enough of a clue to Python to realize, wait a minute, you're trying to set a value. Let me see if this class has a setter defined.
+1:31:24
+And if so, I'm going to call that, and I'm not just going to blindly assign the value from right to left.
+1:31:30
+So it's just giving me more control. Other questions on properties. AUDIENCE: When we use getters, we just have just one argument.
+1:31:39
+And if we use setters, it's always going to be two arguments? Is that normal? DAVID J. MALAN: Correct.
+1:31:45
+It's always going to be one argument-- self for the getter, two arguments for the setter-- self and something else.
+1:31:52
+And the intuition for that is, if you're getting a value, you don't need to pass anything else in because you already know the object.
+1:31:58
+It's called student in this case. So you're just going to get the value of that property. But if you want to set the property to something else,
+1:32:05
+you've got to pass in that argument. You've got to pass in the value to which you want to set it. So it's always 0 or 1.
+1:32:11
+However, you see it as 1 or 2 because, again, any function inside of a class,
+1:32:17
+a.k.a. a method, is going to be automatically passed self so that you have access to that current object in memory.
+1:32:25
+How about one other question on properties? AUDIENCE: Why didn't we use the same underscore house init method?
+1:32:31
+DAVID J. MALAN: A good question. So even though I'm using the underscore house here, in my setter, and the underscore house here, in my getter,
+1:32:39
+I deliberately did not use it up here. The reason for that is that, by using self.house and this equal sign,
+1:32:47
+that's the same pattern that I want Python to recognize. I want Python to automatically call the setter,
+1:32:53
+even when I'm passing in the house via the init method. If I were to change this to do this, that would circumvent the setter,
+1:33:01
+and now there's no error checking in init whatsoever. So it's such a fine line. The only thing standing between us and error checking or no error checking
+1:33:10
+is the presence or absence of this underscore. But that's typically the convention. By not using the underscore there, make sure
+1:33:17
+that even that assignment goes through the setter so that, honestly, I, don't have to copy paste the same error
+1:33:22
+checking in two places. I can put it just in the setter. So it's a better design, and that's why I manually retyped it at first,
+1:33:28
+but then I deleted it from init. Well, allow me to propose that we make one other change to this file.
+1:33:34
+Might as well go ahead and define a property for name as well. And let me go ahead and do this-- maybe above the house property
+1:33:41
+just to keep things in the same order as I defined them earlier. Let me give myself another property.
+1:33:47
+This one is going to be called name. It's going to take one argument called self, as always. And this one, very similarly, is just going to return self._name.
+1:33:55
+So I'm going to anticipate that I'm going to have to rename name also so that I don't have that same collision as
+1:34:01
+before. But now let me go ahead and define another setter-- this one for name.
+1:34:06
+So the convention is @name.setter. Why name? Because the property I just created is called name.
+1:34:13
+So the getter and setter work in conjunction in this way, if you will. Let me go down under that name setter and define another function,
+1:34:22
+also called name. But the key thing here is that it's not identical. It's not the exact same function name and the exact same number of arguments.
+1:34:30
+The setter, again, takes a second argument. And I can call it anything I want, but I'm going to call it name because that's what's being passed in.
+1:34:36
+And I'm going to put my error checking here. If not name, just like we used to do, let's go ahead and raise a value error,
+1:34:43
+and let's put an explanatory message like "Missing name," quote, unquote.
+1:34:48
+Otherwise, let's go ahead and update self._name to equal name.
+1:34:55
+And I don't have to change init except to get rid of this duplicate error checking now because, again,
+1:35:02
+if I use self.name equals here and self.house equals here with no underscore, both of those assignments
+1:35:09
+are going to go through my two setter functions now. Before we run this, let me go ahead and remove
+1:35:15
+this adversarial code, which we know won't work because we're catching it. Let me go back down to my terminal window and run Python of student.py,
+1:35:22
+Enter. Let's type in Harry. Let's type in Gryffindor. And that seems to work. Let's try though, again, to run Python of student.py
+1:35:29
+with Harry from Number Four, Privet Drive. This will not work. A value error with invalid house, because that's not
+1:35:37
+one of the four Hogwarts houses. And now, for good measure, let's run it one more time. And let's not even give it a name.
+1:35:42
+Let's just hit Enter when prompted. I can type anything for the house. I'll go ahead and still give it Gryffindor, Enter.
+1:35:47
+And now we get another value error, but this one is for missing name. So we seem, now, to have all the more of a defense mechanism in place
+1:35:56
+to ensure that name is as we expect. It's got to have some value that's not blank. And house is as we expect.
+1:36:02
+It's got to have one of those four values. But at the risk of bursting everyone's bubble
+1:36:08
+and making you wonder, why did we just go through all of that, unfortunately Python really focuses on conventions, not hard constraints.
+1:36:18
+And by that, I mean this. If I go back into my main function after I've gotten a student on line 30
+1:36:25
+and I try to adversarially do something like this-- student.house equals
+1:36:30
+"Number Four, Privet Drive," we know this won't work because my setter for house is going to catch this.
+1:36:37
+Watch again. Python of student.py. Let's type in Harry. Let's type in Gryffindor, which will at least pass
+1:36:44
+our check that's induced by init. But line 31 is going to trigger the same setter to be called,
+1:36:52
+and we're going to raise a value error saying "Invalid house." Unfortunately, and if some of you are already
+1:36:58
+thinking a little adversarially, tragically, look what you can do. You can change .house to be ._house.
+1:37:05
+Why? Well, the instance variable is now called _house. The property is called house, no underscore.
+1:37:13
+But the underlying attribute implemented as an instance variable is still called
+1:37:19
+_house. And tragically, Python of student.py. Let's type in Harry.
+1:37:25
+Let's type in Gryffindor, which is correct. But watch what happens now. Oh, my God.
+1:37:30
+We slip through. So what was the point of all of this emphasis from me
+1:37:35
+on doing things the "right way," the Python quick way by having this getter and setter? Well, unlike languages like Java, that just
+1:37:43
+prevent you from doing things like this, Python itself allows you to specify that certain instance variables can
+1:37:49
+be public and accessible to anyone's code, or protected, or private, which means that no one else should be able to change these values.
+1:37:56
+In the world of Python, it's just the honor system. It's not baked into the language itself that there's
+1:38:02
+a notion of visibility, public or private or even somewhere in between protected. Instead, you're on the honor system.
+1:38:08
+And the convention generally is, if an instance variable starts with an underscore, please don't touch it.
+1:38:15
+Just don't. That's on you if you touch that variable and break things. The underscore is meant to signify a convention
+1:38:22
+that this is meant to be "private," but it really just means, please don't touch this. Sometimes, if there's two underscores, which you can use,
+1:38:27
+too, that's an even greater effort by programmers to say, really don't touch this. But technically speaking, there's nothing stopping you or me
+1:38:35
+from circumventing all of these mechanisms, these properties, these getters and setters. We're ultimately just on the honor system
+1:38:42
+not to do so when we see instance variables prefixed with one, or perhaps even two underscores.
+1:38:48
+All right, so this is a lot all at once-- this Introduction to object-oriented programming. But it might come as quite a surprise that, even though we
+Types and Classes

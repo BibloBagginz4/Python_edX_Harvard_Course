@@ -1,0 +1,5 @@
+0:00
+[CLASSICAL MUSIC]
+0:23
+DAVID J. MALAN: All right, this is CS50's Introduction to Programming with Python. My name is David Malan, and this is our week on object-oriented programming,
+Object-Oriented Programming

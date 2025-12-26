@@ -1,0 +1,79 @@
+1:11:16
+for initializing a student and printing out a student. If my class is really meant to be a student, what I can do
+1:11:23
+is not just remember information about data about students. What's powerful about classes, unlike dictionaries alone,
+1:11:31
+is that classes can have, not just variables or instance variables--
+1:11:36
+those attributes we keep creating. They can also have functions built in, a.k.a.
+1:11:42
+methods. When a function is inside of a class, it's called a "method," but it's still just a function.
+1:11:47
+At this point, we've seen two functions already-- two methods-- called a double underscore init and double underscore str,
+1:11:54
+but those are special methods in that they just work. If you define them, Python calls them automatically for you.
+1:12:01
+But what if you wanted to create more functionality for a student so that your class really represents this real world, or maybe "fantasy"
+1:12:09
+world notion of a student, where students not only have names and houses and patronuses; they also have functionality.
+1:12:16
+They have actions they can perform like casting a charm, a spell, magically.
+1:12:22
+Could we implement, therefore, a function called charm, that actually uses their magical knowledge?
+1:12:30
+Well, let's go ahead and define our very own function as follows. Let me clear my terminal window, scroll back up to my student class.
+1:12:37
+And instead of creating yet another function that's special, with double underscores, I'm going to invent my own function, or method,
+1:12:45
+inside of this class. I want to give Harry and Hermione and all of the other students
+1:12:51
+the ability to cast charms, so I'm going to define a function that I can completely, on my own, call charm.
+1:12:57
+I could call this function anything I want. But because it's a method inside of a class, the convention is that it's always going to take at least one argument, called
+1:13:06
+self, by convention so that you have access to the current object, even if you don't plan to use it, per se.
+1:13:13
+All right, let me go ahead and propose that we implement charm in such a way that the method returns an emoji that's appropriate for each student's
+1:13:21
+patronus. How to implement this-- well, inside of the charm method, let's go ahead and match on self.patronus,
+1:13:29
+which is the instance variable containing a string that represents each student's patronus. And in the case that it matches a stag, for instance, for Harry, let's go ahead
+1:13:38
+and return maybe the closest emoji-- this horse here. How about in the case of an otter?
+1:13:44
+Well, in that case, let's go ahead and return, oh, maybe the closest match
+1:13:49
+to the otter, which might be this emoji here. And let's see, in the case of a-- for Ron, rather than Hermione--
+1:13:57
+a Jack Russell terrier, let's go ahead and return--
+1:14:02
+don't have as many options here. Why don't we go ahead and return the cutest available dog in that case.
+1:14:08
+And in the case of no patronus recognized,
+1:14:14
+as might cover someone like Draco, let's go ahead and use a default case using the underscore as in the past,
+1:14:19
+and let's go ahead and return for this-- oh, what should happen if someone doesn't have a patronus? Why don't we just see a magical wand that
+1:14:26
+seems to fizzle out, as in this case? All right, well, now, rather than just print the student, let's go about printing their actual patronus.
+1:14:33
+So I'm going to go down to my main function here. I'm going to still get a student, using the get_student function.
+1:14:39
+But rather than print student, let's go ahead and declare "Expecto Patronum!" printing out just that as pure text.
+1:14:46
+And now let's go ahead and print out, not the student but, rather, the return value of their own charm method.
+1:14:54
+So let me go back down to my terminal window and run Python of student.py and Enter.
+1:14:59
+Name-- let's start with Harry. He lives in Gryffindor. Patronus is a stag.
+1:15:05
+And let's see-- Expecto Patronum! And of course, we'd see the stag emoji.
+1:15:10
+What about someone like Draco, who, at least in the books, doesn't have a known patronus? Well, let's go ahead and clear my terminal window,
+1:15:17
+rerun Python of student.py, and this time, let's type in Draco for name,
+1:15:22
+Slytherin for house, and Patronus is unknown. So I'm just going to go ahead and hit Enter. And now, Expecto Patronum!
+1:15:29
+And it just of sizzles instead. Well, let me propose, now, that we remove this patronus code just
+Properties, Getters and Setters

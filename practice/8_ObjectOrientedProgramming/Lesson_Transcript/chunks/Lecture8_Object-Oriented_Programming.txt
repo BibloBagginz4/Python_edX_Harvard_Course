@@ -1,0 +1,11 @@
+0:31
+or OOP. It turns out that, in the world of programming, there's different paradigms of programming languages.
+0:37
+There's different ways of solving problems with code, and it's a little hard to see this at first if you've only learned one language.
+0:43
+But over time, if and when you learn other languages besides Python, you'll start to notice certain patterns and certain capabilities
+0:50
+of some languages but not another. Thus far, within the world of Python, you and I have largely been writing code that's procedural in nature, whereby we're
+0:58
+writing procedures; we're writing functions; and we're doing things top to bottom. Everything is step by step by step, as you would
+Tuples

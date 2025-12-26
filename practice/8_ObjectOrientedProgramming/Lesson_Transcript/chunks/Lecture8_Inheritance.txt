@@ -1,0 +1,255 @@
+2:17:30
+So it turns out, besides these class methods, which are distinct from those instance methods, which, to be fair,
+2:17:35
+do not have their own decorator-- they just are, by default, instance method, there's yet other types of Methods You can have in classes in Python.
+2:17:42
+They tend to be called static methods, and they, too, come with another decorator called @static method, which
+2:17:48
+is a rabbit hole we won't go down. But realize that there is yet other functionality that you can leverage within object-oriented programming.
+2:17:54
+But what we thought we'd do is focus really on some final core features that you see not just in Python but other languages as well.
+2:18:02
+And perhaps one of the most compelling features of object-oriented programming that we haven't yet used explicitly-- though it turns out we've seen
+2:18:09
+implicitly over the past weeks-- is this notion of inheritance. It turns out, via object-oriented programming,
+2:18:16
+there's actually an opportunity to design your classes in a hierarchical fashion, whereby you can have one class inherit from
+2:18:25
+or borrow attributes-- that is, methods or variables from another class
+2:18:30
+if they all have those in common. So what do I mean by this here? Well, let me propose that we implement, over in VS Code here,
+2:18:39
+a brand new file called wizard.py. Let me go ahead and run code of wizard.py.
+2:18:45
+And then let's start as before, defining a class called student. And let's go ahead and first define the underscore underscore, init method,
+2:18:54
+which of course, is minimally going to take an argument traditionally called self. And in this case, let's also have it take as before a name and a house.
+2:19:01
+And then in this init method, let's go ahead and assign the instance variables-- self.name = name,
+2:19:08
+and self.house = house. Let's assume that there's some other functionality
+2:19:13
+in this class as well-- dot, dot, dot. But let's move on now to implementing the notion of a professor
+2:19:18
+in the wizarding world as well. So for this class, let's call it Professor.
+2:19:24
+And a professor, let's say, is also going to have its own initialization method. So __ init.
+2:19:30
+It's going to take self-- always as the first argument. A professor also has a name. So we'll pass that in second, too.
+2:19:37
+And even though some professors are heads of houses, let's assume that a professor is really identified by their name and their subject area-- the class that they teach.
+2:19:45
+So we'll call this third argument, subject. Now, as before, let's go ahead and assign self.name = name,
+2:19:51
+and let's assign self.subject = subject here. And as before, let's assume that there's some more functionality associated
+2:19:59
+with professors as well. Well, what do you notice already here in my definitions of students
+2:20:05
+and professors? Typically, we're a bit reluctant to allow for any redundancy in our code.
+2:20:11
+And here, I feel like my init method is taking a name for students; my init method is also taking a name for a professor;
+2:20:18
+and I have these identical lines of code, like self.name = name. And this is only going to get exacerbated if I now go and add
+2:20:25
+some error checking. So for instance, how about if not name, we should probably be in the habit of raising something
+2:20:32
+like a value error in an explanatory message, like "Missing name." And you know what?
+2:20:37
+If a professor is missing their name, I should probably copy, paste that code down here. And that's where red flags should be going off,
+2:20:43
+whereby, as soon as you start copy pasting code, there's probably a better way so that we can write the code once and perhaps
+2:20:50
+reuse it in some way. And here, too, object-oriented programming offers a solution. It turns out that object-oriented programming in Python
+2:20:58
+also supports inheritance, whereby you can define multiple classes that
+2:21:03
+somehow relate to one another. They don't need to exist in parallel in this way. There could actually be some hierarchy between them.
+2:21:10
+So for instance, in the wizarding world, we could argue that both a student and a professor are, at the end of the day,
+2:21:15
+Wizards. So maybe what we should really define is a third class, for instance, called wizard, that has any
+2:21:21
+of the common attributes for students and professors alike. And for now, we've kept it relatively simple.
+2:21:27
+The only thing they have in common is a name and a name, in student and professor, respectively. So why don't we minimally factor that out first?
+2:21:35
+All right, so let me go ahead here. And just to keep things organized, at the top of my file, let's define a third class called Wizard.
+2:21:41
+And a wizard will have its own initialization method. So def __init__(self), as always.
+2:21:49
+And a wizard, let's say for now, is only going to be initialized with their name in this way.
+2:21:55
+And now, I'm going to go ahead and do some of that error checking. So if not name will raise a value error in the wizard class.
+2:22:02
+Otherwise, we'll go ahead and do self name equals name, and, heck, dot, dot, dot, maybe some other functionality as well.
+2:22:09
+But not a subject, which is specific to professors, and not a house, which I've claimed is specific to students.
+2:22:15
+Now, I think we can begin to maybe remove some of the redundancies in our other classes here.
+2:22:20
+So for instance, down with student, why don't I go ahead and remove this error checking here and remove this error--
+2:22:28
+this assignment of self.name = name because I'm already doing that in Wizard. And similarly, down here, in Professor, why don't I do the same?
+2:22:35
+Let's get rid of the error checking. Let's get rid of self.name = name because, again, I'm doing that already
+2:22:41
+up there for Wizard as well. But at the moment, even though they're all in the same file, I haven't told Python that a student is a wizard and a professor is a wizard.
+2:22:50
+So I really need to link these two together. And the way you can prescribe inheritance, whereby one class should
+2:22:57
+inherit from another, or conversely, one class should descend from another-- we can do this.
+2:23:03
+I can say class Student. But before the colon, I can go in and say in parentheses, a student inherits from, or is a subclass of wizard, which, conversely,
+2:23:13
+is the superclass of the student class. So this just means that, when I define a student class,
+2:23:19
+go ahead and inherit all of the characteristics of a wizard as well. And I'm going to do the same thing for Professor.
+2:23:26
+So (Wizard) after the class name Professor, and that's going to give me access to some of that same functionality.
+2:23:33
+But because my student class and my professor class still have their same init methods, those
+2:23:39
+are the methods that are going to get called. Whenever I create a student in code or I create a professor in code,
+2:23:44
+I need to somehow explicitly say that I also want to use the functionality in the Wizard class's init method.
+2:23:51
+And the way to do this in Python is as follows. Let me go into my init method for Student,
+2:23:56
+and let me call super, with no arguments, which is a reference to the superclass of this class.
+2:24:03
+So if this class is Student, the superclass-- that is, the parent class-- is Wizard. So super() will have the effect of accessing the superclass.
+2:24:13
+And then I'm going to go ahead and explicitly call its init method, and I'm going to pass to the Wizard's init method
+2:24:21
+the name that the student's init method was passed. And I'm going to go ahead and do the same down here in Wizard.
+2:24:28
+This is one line of copy, paste. But I think I'm OK with it here because it's still allowing me to do all of the name assignment
+2:24:34
+and the error checking up in the Wizard class instead. I think we're OK now by just calling super.init for both student
+2:24:42
+and Professor alike. Now, admittedly, this syntax is definitely out there-- the fact that we're calling super in parentheses and dots
+2:24:49
+and underscore underscore on the left and the right of init here, but it's just a combination of these two ideas.
+2:24:54
+super() is a way of programmatically accessing a current class's parent
+2:25:00
+class, or superclass, and __init, of course, is just referring to, now, that class's own initialization method.
+2:25:08
+Now, per the dot, dot, dot-- so there could be a lot more going on in these classes. But what's nice now is that Wizard as a class
+2:25:15
+is taking care of all of the assignment of a wizard's name, whether that wizard is a student or a professor.
+2:25:20
+And it's even doing some error checking to make sure the name was actually passed in. Meanwhile, student is inheriting all of that functionality
+2:25:29
+and using it by calling the superclass's own init method. But it's additionally taking the house, that's presumably
+2:25:35
+passed into the student constructor function, and assigning it to its own instance variable-- self.house,
+2:25:40
+and similarly, professor, or restoring in self.subject the subject that was passed into that one as well.
+2:25:47
+Now, how might we use these classes? Well, we'll continue to wave our hands with a little bit of detail here.
+2:25:53
+But at the bottom of this file, or any other file that imports this one, I could now write code like this.
+2:25:58
+I could create a student variable and assign it the return value of the student constructor call. and maybe that student is named Harry and that student's house,
+2:26:07
+for instance, might be Gryffindor. And meanwhile, I might do something like this. professor = Professor over here.
+2:26:14
+And notice, the lowercase S on the left, capital S on the right. Same for professor on the left-- lowercase and uppercase on the right
+2:26:21
+respectively. Professor, quote, unquote, "Severus," and how about Defense Against the Dark Arts will be his subject?
+2:26:30
+And meanwhile, if we want, more generically, just a wizard, who, at the moment is neither student nor professor
+2:26:37
+teaching classes actively, we could even do that. We could do wizard = Wizard in capital W on the right-hand side
+2:26:43
+of the equal sign, because it's the name of the class. And someone like Albus-- passing in only Albus's name--
+2:26:49
+not a house, not a subject, because, in this case, he's known only as a wizard.
+2:26:55
+Meanwhile, with each of these calls, this line of code here will ensure that the init method for the wizard class is called.
+2:27:01
+This line of code here will ensure that the init method of the student class and, in turn, the init method of the superclass wizard is called.
+2:27:09
+And then lastly, on this final line of code, will this syntax ensure that the init method of the professor class
+2:27:15
+is called, which, in turn, calls the init method of the superclass as well. Any questions now on this idea of inheritance,
+2:27:24
+which is a key feature of a lot of object-oriented programming languages?
+2:27:33
+MICHAEL: From what I've seen so far, a lot of times, there's a lot of nesting. If you do super, does it go one up? Is there any situation where it's nested in another class as well, above Wizard,
+2:27:44
+let's say? DAVID J. MALAN: A really good question. If you were to have a super superclass-- so your hierarchy is even taller than the two levels of hierarchy
+2:27:52
+that we currently have, absolutely. What's nice about inheritance, as the name implies, is,
+2:27:59
+just as you might have inherited certain traits as a human from your grandfather and grandmother or your great-grandfather
+2:28:06
+or great-grandmother, some of those properties can actually trickle down to you in the context of code as well.
+2:28:13
+So when you descend from another class-- that is, when you subclass a superclass or a super superclass,
+2:28:21
+you actually do inherit all of the functionality, not just from one level above you but from two or three,
+2:28:26
+so you can indeed access some of that functionality as well. And you can even override it if you want some of these classes
+2:28:32
+to behave a little bit differently than others. Other questions on inheritance.
+2:28:38
+AUDIENCE: So it's similar to the last one, but can you have two parents on the same level? DAVID J. MALAN: A really good question.
+2:28:44
+So there are ways to implement descendants from multiple parents.
+2:28:49
+And there's different ways to do this, not just in Python but other languages. We've kept things simple here, though, by having a single inheritance path.
+2:28:57
+A good question. How about one more question on inheritance? AUDIENCE: Can we have multiple arguments in super.__init?
+2:29:07
+DAVID J. MALAN: Yes, but in this case, I'm only passing a name on line 18, and I'm only passing in name on line 10.
+2:29:13
+Why? Because, on line 2, when I define the init method for the Wizard class, I only expect a single argument.
+2:29:20
+But I could absolutely have other common functionality. I could add in a patronus. If both students and professors have patronuses
+2:29:27
+that can come out of their wands, I could have two arguments instead. We've been using this feature of object-oriented programming
+2:29:33
+now for quite some time in the form of exceptions. Indeed, if you look at the official documentation for exceptions in Python,
+2:29:40
+you'll see that there's not even the ones we've seen in class, like value error and others. There's any number of others as well, but they are all, themselves,
+2:29:48
+hierarchical in nature. This is just a subset of the available exceptions that come built into Python.
+2:29:54
+And you can actually, as a programmer, create your own exceptions as well. But as this chart here captures hierarchically,
+2:30:01
+all exceptions we've seen thus far actually descend from or inherit from superclasses already.
+2:30:09
+So for instance, at the bottom of this list here is ValueError, which we've seen quite a bit. And if you follow the line straight up on this ascii rendition of this chart,
+2:30:17
+you'll see that ValueError has a parent, class, or superclass, called exception. And the exception class, meanwhile, has a parent class called base exception.
+2:30:25
+Why did the authors of Python do this? Well, it turns out that, whether you have a value error or a key error
+2:30:32
+or an assertion error or any number of others, there's a lot of functionality common to all of those types of errors
+2:30:40
+that you want-- that you want a programmer to be able to use. And so it turns out that the authors of Python decided, you know what?
+2:30:48
+Let's not have a dozen or more different classes that all just have copy, pasted similar functionality.
+2:30:55
+Let's create this hierarchy so that, even though the exceptions toward the bottom of this list are very precise,
+2:31:00
+they at least inherit-- that is, borrow some very common functionality up above. So it turns out that, when you use the Try and the Accept keyword in Python,
+2:31:09
+generally speaking, we've tried to catch very specific exceptions, like ValueError. But technically, you could capture the parents or even
+2:31:17
+the grandparent exception for a given exception, especially if you're not necessarily sure which one is going to get raised.
+2:31:23
+Or, better yet, there could be many exceptions that get raised, but you want to handle them all the same,
+2:31:28
+and you don't want to necessarily enumerate them in parentheses, separated by commas. You want to say you want to handle all exceptions of a certain superclass
+2:31:36
+in much the same way. So this has been latent this whole time, any time we've seen or used or caught or, now, raised exceptions, and built into Python
+2:31:45
+is this hierarchy. And if you were to invent your own exception, generally, you wouldn't want to start from scratch.
+2:31:50
+You would want to descend from-- that is, subclass, one of these existing exceptions and add your own twist on it, your own functionality as well.
+2:31:58
+Well, there's one final feature of object oriented programming that we'd like to share with you today, and then it
+Operator Overloading

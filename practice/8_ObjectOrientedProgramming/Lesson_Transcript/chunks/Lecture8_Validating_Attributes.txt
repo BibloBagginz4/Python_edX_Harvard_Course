@@ -1,0 +1,85 @@
+59:51
+and a last argument. And then what I think I would do down here is ultimately have first = first,
+59:57
+and then I would do the same thing for middle and last. So middle and middle, and then last and last.
+1:00:05
+And then what I would have to do here is, when I actually ask the user for their name,
+1:00:11
+I might need to really go all out. I might need to ask them first for their first name and store that in a variable called first, and therefore pass in first.
+1:00:18
+I might similarly need to ask them for their middle name and store that in a variable and then pass in a second argument, middle.
+1:00:25
+And then lastly, if you will, let me go ahead and create a third variable called last, get the input for their last name,
+1:00:31
+and pass that in as well. I could instead just use one input and just ask them for their whole name.
+1:00:38
+So type in David Malan, Enter, or David J. Malan-- all three of them, and maybe I could use Python's split function,
+1:00:45
+maybe a regular expression to tease it apart. That's probably going to be messy because there's going to be people who don't have just two or three names.
+1:00:52
+They might have four or five. So maybe sometimes it's better to have multiple prompts. But that's not a problem because, with a class,
+1:00:58
+we have the expressiveness to take in more arguments if we want. We could even take a list if we wanted.
+1:01:04
+But I think we'd probably want to have even more error checking then, not just for name but for first, and then maybe for middle, and then
+1:01:11
+maybe for last. So it just is more and more code, though there would be ways to perhaps consolidate that, too.
+1:01:17
+Let me undo all of that and see if there are other questions now on classes.
+1:01:22
+AUDIENCE: I assume classes are something I might do at the beginning of a project. Can I just put them in a different file and import them
+1:01:28
+into my project, or my main code as needed? DAVID J. MALAN: Absolutely. A really good question.
+1:01:34
+You could imagine wanting to use this student class, not just in student.py but in other files or other projects of yours.
+1:01:40
+And absolutely, you can create your own library of classes by putting the student class in your own module or package,
+1:01:48
+per our discussion in the past about libraries more generally. And absolutely, you can do that. And later today, what we see is we've actually
+1:01:54
+been using classes-- you and I-- before, in third party libraries. So you, too, can absolutely do the same.
+1:02:00
+How about one more question on classes? AUDIENCE: Can you have optional variables in classes?
+1:02:06
+And two, can you have your own error names, like-- let's be egotistical and say I want to raise Eric error?
+1:02:13
+DAVID J. MALAN: Short answer, yes. These init functions are just like Python functions more
+1:02:18
+generally, even though they're special in that they're going to get called automatically by Python for you. But if you wanted to make house optional,
+1:02:25
+you could do something like this. You could give it a default value in the init function's signature
+1:02:31
+so to speak-- in that first line of code on line two. And that would allow me to not have to pass in house.
+1:02:36
+In this case, I'm going to continue to always pass in name and house, but you could make things optional. And yes, to your second question, if you wanted to have your own error message,
+1:02:45
+like an Eric error, you could actually create your own Eric error exception.
+1:02:50
+And we'll see, in a little bit, that there's actually a whole suite of exceptions that exist, and you, too, can invent those as well.
+1:02:58
+Let me propose, though, that we now introduce one other aspect of this whereby we try printing out what a student looks like.
+1:03:06
+At the moment, if I scroll back down to my main function, I'm still printing the student's name and house very manually.
+1:03:11
+I'm going inside of the object, doing student.name, and I'm going inside of the object again and getting student.house,
+1:03:17
+just to see where the student is from. But wouldn't it be nice if I could just print the student,
+1:03:23
+like I've been printing for weeks-- any, int, or float, or str, or any other data type?
+1:03:29
+Well, let's see what happens if I just try printing the student, instead of manually going inside and trying to create that sentence myself.
+1:03:36
+Well, in my terminal window-- let me go ahead and run Python of student.py again. Let me type in Harry.
+1:03:41
+Let me type in Gryffindor. And voila, Harry-- whoa, OK, main student object at 0x102733e80.
+1:03:50
+Well, what is going on? Well, if you were to run the same code, you might actually see something different on your computer
+1:03:56
+in terms of that number. But what you're really seeing is the underlying representation, as a string,
+1:04:01
+of this specific object. In particular, you're seeing where in the computer's memory it is. This number, 30x102733e80, refers to, essentially, a specific location
+1:04:12
+in the computer's memory or RAM. That's not really that interesting for me or you or, generally speaking,
+1:04:19
+programmers, but it's just the default way of describing, via print, what this thing is.
+The String Method
