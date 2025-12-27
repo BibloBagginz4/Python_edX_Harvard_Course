@@ -34,38 +34,39 @@ tests with:
 
 import sys
 from datetime import date
-import operator
 import inflect
+
+p = inflect.engine()
 
 
 def main():
-    birthday = input(f"Date of Birth: ")
-    today = date.today()
+    birthday_str = input("Date of Birth: ").strip()
 
-    # Validating user input and converting str to date object
-    try:
-        b_day = date.fromisoformat(birthday)
-    except:
+    # Enforce exact YYYY-MM-DD shape
+    if (
+        len(birthday_str) != 10
+        or birthday_str[4] != "-"
+        or birthday_str[7] != "-"
+        or not (birthday_str[:4] + birthday_str[5:7] + birthday_str[8:]).isdigit()
+    ):
         sys.exit("Invalid date")
 
-    # Finishing input format, since only the valid format is length 10
-    if len(birthday) != 10:
-        sys.exit(f"Length is not 10")
+    # Semantic validation
+    try:
+        birthdate = date.fromisoformat(birthday_str)
+    except ValueError:
+        sys.exit("Invalid date")
 
-    print(convert_minutes(today, b_day))
+    today = date.today()
+    print(minutes_in_words(birthdate, today))
 
 
-def convert_minutes(d1, d2):
-    # Subtracting birthday from today
-    delta = operator.__sub__(d1, d2)
+def minutes_in_words(birthdate: date, today: date) -> str:
+    delta = today - birthdate
+    minutes = delta.days * 24 * 60
 
-    # Converting from days to minutes (1440 minutes per day)
-    minutes = delta.days * 1440
-
-    # Changing from numbers to words
-    p = inflect.engine()
-
-    return (f"{p.number_to_words(minutes, andword="")} minutes").capitalize()
+    words = p.number_to_words(minutes, andword="")
+    return f"{words} minutes".capitalize()
 
 
 if __name__ == "__main__":
