@@ -1,0 +1,30 @@
+- [x] Read the full CS50 Shirtificate problem description from start to finish without writing code.
+- [x] Read the fpdf2 tutorial to understand basic PDF creation concepts.
+- [x] Skim the fpdf2 API documentation to see available methods and parameters.
+- [x] Create a new directory named `shirtificate`.
+- [x] Change into the `shirtificate` directory.
+- [x] Download `shirtificate.png` into the directory.
+- [x] Create a new file named `shirtificate.py`.
+- [x] Install the `fpdf2` library using pip.
+- [x] Import the required class(es) from `fpdf2`.
+- [x] Prompt the user for their name as input.
+- [x] Create a new PDF object with portrait orientation.
+- [x] Set the PDF format to A4 (210mm x 297mm).
+- [x] Add a single page to the PDF.
+- [x] Ensure automatic page breaks are disabled to prevent overflow.
+- [x] Add the title text “CS50 Shirtificate” at the top of the page, centered horizontally.
+- [x] Load and place the `shirtificate.png` image on the page.
+- [x] Center the shirt image horizontally on the page.
+- [x] Set an appropriate font and text color for overlay text.
+- [x] Place the user’s name on top of the shirt image.
+- [x] Ensure the user’s name text is white.
+- [x] Position the name so it visually sits on the shirt.
+- [x] Confirm that long names are not wrapped across multiple lines.
+- [x] Optionally add visual enhancements such as borders, colors, or lines.
+- [x] Save the output PDF as ``.
+- [x] Run the program manually and enter a name when prompted.
+- [x] Open `shirtificate.pdf` in VS Code to verify visual output.
+- [x] Test with multiple different names to confirm consistent behavior.
+- [x] Run `check50` to validate the solution against CS50’s tests.
+- [x] Review any check50 feedback and adjust if necessary.
+- [x] Submit the final solution using `submit50`.

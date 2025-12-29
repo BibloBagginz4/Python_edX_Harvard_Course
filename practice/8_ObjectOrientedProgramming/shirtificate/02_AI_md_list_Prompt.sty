@@ -1,0 +1,146 @@
+=================================================================
+SECTION 1 - INTERNAL METADATA - NOT FOR AI INSTRUCTIONS
+=================================================================
+
+<<< SUBJECT - Internal Metadata Not for AI Instructions!>>> 
+    Describe the subject or topic of the prompt.
+
+<<< REVISION - Internal Metadata Not for AI Instructions!>>> 
+    Prompt: Rev01 Initial Draft 12-26-2025
+    Template: Rev01 Initial Release 12-26-2025:13:55
+
+=================================================================
+SECTION 2 - AI INSTRUCTIONS (HIGH PRIORITY)
+=================================================================
+
+<<< AI ROLE >>>
+    My Personal Assistant, expert at breaking down complex requirements
+    into simple, easy to follow and understand itemized tasks.
+
+<<< AI PRIMARY TASK >>> 
+    Break down the <<<CS50_PROBLEM_DESCRIPTION>>> into a single,
+    non-categorized list that is to be priotorized in the chronological
+    order that it needs to be completed.
+
+
+<<< MESSAGE PURPOSE>>>
+    I need you to break down the description into actionable list.
+
+<<< OUTPUT FORMAT >>>
+    You will generate it in a format that I can copy & paste into VSCode
+    to make an `.md` file.
+
+<<< TARGET READER >>>
+    Me, Bible Bagginz
+
+
+=================================================================
+SECTION 3 - DETAILED AI INSTRUCTIONS
+=================================================================
+
+<<< REQUIRED CONTENT ELEMENTS >>>
+    A) The list needs to be in the order that it should be completed.
+    B) Checkbox `.md` style.
+    C) Wording should be precise, clear and simple.
+    D) When samples of code format are given, do not repeat that in your
+       list, but do include a task that states that the format must be
+       adhered to (if required).
+
+<<< OPTIONAL CONTENT ELEMENTS - USE ONLY IF THEY IMPROVE THE MESSAGE >>>
+    A) Specific details to consider
+
+<<< GLOBAL INSTRUCTIONS & CONSTRAINTS - FOLLOW EXACTLY >>>
+    1) No hallucinations. Only use the information provided.
+    2) Follow all instructions unless user overrides them.
+    3) If any instruction seems ambiguous or contradictory, ask one clarifying question before writing the draft.
+    4) No Long Hyphens (These are dead AI giveaways). Use standard hyphens only.
+    5) Use proper grammar and spelling.
+    6) The writing should not sound like it was AI written.
+    7) Tone: Write in my natural voice: grounded, steady, positive, and honest.
+       Avoid exaggerated enthusiasm or sales-like language. I do not try to impress. I communicate with clarity,
+       calm confidence, and sincerity.
+    8) Positivity: Use constructive, positive framing only. Avoid negative words and avoid defensive language.
+       Always forward and productive.
+    9) Voice: Avoid fluff, avoid generic corporate language, avoid sounding eager or desperate.
+       Maintain clear, concise, natural phrasing.
+    10) Match the user's preferred terminology whenever provided.
+
+<<< TASK SPECIFIC INSTRUCTIONS & CONSTRAINTS >>>
+    1) WORD COUNT TARGET: Unless specificed here, use best practice counts.
+    2) Additional task-specific instructions can be listed here.
+
+
+=================================================================
+SECTION 4 - TONE / STYLE CALIBRATION
+=================================================================
+
+<<< START WRITING TONE SAMPLE - DO NOT COPY CONTENT >>>
+<<< END WRITING TONE SAMPLE >>>
+
+================================================================
+SECTION 5 - REFERENCE MATERIALS
+=================================================================
+
+<<<START:CS50_PROBLEM_DESCRIPTION>>>
+CS50 Shirtificate
+John Harvard's CS50 Shirtificate
+
+Suppose that you’d like to implement a CS50 “shirtificate,” a PDF with an image of an I took CS50 t-shirt, shirtificate.png, customized with a user’s own name.
+
+In a file called shirtificate.py, implement a program that prompts the user for their name and outputs, using fpdf2, a CS50 shirtificate in a file called shirtificate.pdf similar to this one for John Harvard, with these specifications:
+
+The orientation of the PDF should be Portrait.
+The format of the PDF should be A4, which is 210mm wide by 297mm tall.
+The top of the PDF should say “CS50 Shirtificate” as text, centered horizontally.
+The shirt’s image should be centered horizontally.
+The user’s name should be on top of the shirt, in white text.
+All other details we leave to you. You’re even welcome to add borders, colors, and lines. Your shirtificate needn’t match John Harvard’s precisely. And no need to wrap long names across multiple lines.
+
+Before writing any code, do read through fpdf2’s tutorial to learn how to use it. Then skim fpdf2’s API (application programming interface) to see all of its functions and parameters therefor.
+
+No need to submit any PDFs with your code. But, if you would like, you’re welcome (but not expected) to share a shirtificate with your name on it in any of CS50’s communities!
+
+Hints
+Note that fpdf2 comes with a class called FPDF, which has quite a few methods, per py-pdf.github.io/fpdf2/fpdf/#fpdf.FPDF. You can install it with:
+pip install fpdf2
+Note that you can extend FPDF and instantiate your own subclass thereof in order to add a header to every page of a PDF, per py-pdf.github.io/fpdf2/Tutorial.html#tuto-2-header-footer-page-break-and-image. Or you can add it as text yourself.
+Note that you can disable automatic page breaks, which might otherwise cause your PDF to overflow from one page to two, with set_auto_page_break, per py-pdf.github.io/fpdf2/Margins.html.
+Note that a cell’s height can be negative, to move it upward.
+You can open shirtificate.pdf, once outputted, by clicking it in VS Code’s file explorer.
+Demo
+
+Before You Begin
+Log into cs50.dev, click on your terminal window, and execute cd by itself. You should find that your terminal window’s prompt resembles the below:
+
+$
+Next execute
+
+mkdir shirtificate
+to make a folder called shirtificate in your codespace.
+
+Then execute
+
+cd shirtificate
+to change directories into that folder. You should now see your terminal prompt as shirtificate/ $. Now execute
+
+wget https://cs50.harvard.edu/python/2022/psets/8/shirtificate/shirtificate.png
+to get a copy of the shirtificate.png image for your certificate. Finally, execute
+
+code shirtificate.py
+to make a file called shirtificate.py where you’ll write your program.
+
+How to Test
+Here’s how to test your code manually:
+
+Run your program with shirtificate.py. Make sure your program prompts you for a name. Enter your own name and press Enter. Your program should create a file, shirtificate.pdf, containing the name you entered as input overlaid on a rendering of shirtificate.png.
+Try a few other names for good measure, too!
+You can execute the below to check your code using check50, a program that CS50 will use to test your code when you submit. But be sure to test it yourself as well!
+
+check50 cs50/problems/2022/python/shirtificate
+Green smilies mean your program has passed a test! Red frownies will indicate your program output something unexpected. Visit the URL that check50 outputs to see the input check50 handed to your program, what output it expected, and what output your program actually gave.
+
+How to Submit
+In your terminal, execute the below to submit your work.
+
+submit50 cs50/problems/2022/python/shirtificate
+<<<END:CS50_PROBLEM_DESCRIPTION>>>
